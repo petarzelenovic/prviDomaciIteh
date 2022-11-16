@@ -49,3 +49,61 @@
     position: relative;
   
   }
+
+  
+
+  .username{
+    font-family: Montserrat;
+}
+
+.password{
+    font-family: Montserrat;
+
+}
+/*.container {
+    position: absolute;
+    top:600px;
+    left:288px;
+}
+*/
+form button {
+  background-color: #5a23c0;
+  color:white;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
+ul li {
+font-size: 2.5rem;
+list-style: none;
+}
+
+#slova {
+display: flex;
+flex-direction: row;
+}
+
+.kupujem {
+margin-top: -0.8rem;
+}
+
+.heroSection{
+  margin-top: 150px;
+  padding-left:50px;
+}
+
+nav{
+padding: 50px 0 0 50px;
+}
+
+nav .logo{
+font-family: Montserrat, sans-serif;
+font-weight: lighter;
+font-size: 70px;
+text-decoration: none;
+color: white;
+}
+
+.logo:hover{
+color:white;
+}
