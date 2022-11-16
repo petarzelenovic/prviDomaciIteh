@@ -36,6 +36,16 @@
   a {
     text-decoration: none;
     color: #fff;
+  
   }
 
- 
+  input {
+    display: block;
+    margin-bottom: 0.7rem;
+    margin-top: 0.7rem;
+    padding: 0.7rem;
+    width: 20rem;
+    border: 2px solid #5a23c0;
+    position: relative;
+  
+  }
