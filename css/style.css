@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'specify-personal-normal-black', sans-serif;
+    background: url("../img/pozadina2.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+  }
+
+  section .form-control{
+     width:20%;
+  }
+
+
+
+  .prijava{
+    font-family: Montserrat;
+    color: white;
+    margin-bottom: 30px;
+    
+  }
+
+  
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+ 
