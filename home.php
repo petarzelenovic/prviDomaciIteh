@@ -156,7 +156,74 @@ require "model/user.php";
 
 
 
-   
+    <script>
+            $(document).ready(function(){
+            $('.delete').click(function(){
+            var el = this;
+            var id=this.id;
+            var splitid= id.split('_');
+            var deleteid= splitid[1];
+            var confirmalert = confirm("Da li ste sigurni?");
+            if (confirmalert == true) {
+                        $.ajax({
+                        url: 'kontroler/remove.php',
+                        type: 'post',
+                        data: { id:deleteid },
+                        success: function(response){
+
+                            if(response == 1){
+                        
+                        $(el).closest('tr').css('background','red');
+                        $(el).closest('tr').fadeOut(600,function(){
+                            $(this).remove();
+                        });
+                }else{
+            alert('Invalid ID.');
+                }
+
+            }
+            });
+            }
+
+            });
+
+            });
+
+
+
+        function showUser(str) {
+            if (str == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "getuser.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        }
+
+        function showHint(str) {
+            if (str.length == 0) {
+                document.getElementById("txtHintt").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHintt").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "gethint.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -164,7 +231,22 @@ require "model/user.php";
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 
-    
+    <script>
+        $('#tabelaOglasi th').click(function(){
+            var table = $(this).parents('table').eq(0)
+            var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+            this.asc = !this.asc
+            if (!this.asc){rows = rows.reverse()}
+            for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+        })
+        function comparer(index) {
+            return function(a, b) {
+                var valA = getCellValue(a, index), valB = getCellValue(b, index)
+                return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+            }
+        }
+        function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+    </script>
 
    
 </body>
